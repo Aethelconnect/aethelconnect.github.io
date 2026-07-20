@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing – Aethel Connect</title>
+  <meta name="description" content="View Aethel Connect wireless internet packages and pricing for Gauteng and Bloemfontein." />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #0D1F3C;
+      --navy-deep:   #081529;
+      --navy-mid:    #152E55;
+      --green:       #2D7A22;
+      --green-vivid: #3EA832;
+      --green-light: #EBF5E9;
+      --white:       #FFFFFF;
+      --offwhite:    #F6F8F5;
+      --text:        #1A1C1A;
+      --muted:       #556070;
+      --rule:        #D0DBC8;
+
+      --sky:    #2E86C1;
+      --accent: #00C2A8;
+      --border: #D0DDE9;
+      --light:  #F0F6FC;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── TAB BAR ─── */
+    .tab-bar {
+      background: var(--navy-deep);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .tab-bar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .tab-bar a {
+      display: inline-block;
+      padding: 10px 20px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: rgba(255,255,255,0.45);
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .tab-bar a:hover { color: rgba(255,255,255,0.85); }
+    .tab-bar a.tab-active {
+      color: var(--green-vivid);
+      border-bottom-color: var(--green-vivid);
+    }
+    @media (max-width: 640px) {
+      .tab-bar-inner { padding: 0 16px; }
+      .tab-bar a { padding: 10px 14px; font-size: 0.68rem; }
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      background: var(--navy);
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      border-bottom: 2px solid var(--green);
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo .wifi-icon {
+      width: 34px; height: 34px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .nav-logo .wifi-icon svg {
+      width: 18px; height: 18px;
+      stroke: white; fill: none;
+      stroke-width: 2; stroke-linecap: round;
+    }
+    .nav-logo .wordmark {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1rem;
+      color: white;
+      letter-spacing: 0.05em;
+      line-height: 1;
+    }
+    .nav-logo .wordmark span { color: var(--green-vivid); }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.72);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: white; }
+    .nav-cta {
+      background: var(--green);
+      color: white !important;
+      padding: 8px 20px;
+      font-size: 0.8rem !important;
+      font-weight: 700 !important;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .nav-cta:hover { background: var(--green-vivid) !important; }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-inner { padding: 0 20px; }
+    }
+
+    /* ─── PAGE HEADER ─── */
+    .page-header {
+      background: var(--navy);
+      padding: 48px 32px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 80% 50%, rgba(62,168,50,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .page-header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .page-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green-vivid);
+      margin-bottom: 10px;
+    }
+    .page-header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: white;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+    .page-header p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.6);
+      max-width: 480px;
+    }
+
+    /* ─── STEP BADGES ─── */
+    .steps-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+    .step-badge {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 5px 15px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.04em;
+    }
+    .step-badge.active {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: white;
+    }
+
+    /* ─── BROCHURE WRAPPER ─── */
+    .brochure {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 48px 28px 64px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .section-heading {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(18px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 24px;
+    }
+
+    /* ─── TIER ─── */
+    .tier { margin-bottom: 44px; }
+    .tier-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .tier-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .tag {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 12px;
+      letter-spacing: 0.05em;
+    }
+    .tag-home { background: #EAF4FF; color: #1A4A7A; }
+    .tag-biz  { background: #E5F9F6; color: #007A6A; }
+    .tag-ent  { background: #FFF3E0; color: #9C5000; }
+
+    .tier--unreal .tier-name { color: #2E86C1; }
+    .tier--prime  .tier-name { color: #1A4A7A; }
+    .tier--pro    .tier-name { color: #0A6E62; }
+
+    /* ─── PRICE TABLE ─── */
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .price-table thead tr { color: white; }
+    .price-table thead th {
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+    }
+    .price-table thead th:last-child { text-align: right; }
+    .price-table tbody tr { border-bottom: 1px solid var(--border); }
+    .price-table tbody tr:last-child { border-bottom: none; }
+    .price-table tbody tr:nth-child(even) { background: var(--light); }
+    .price-table tbody td { padding: 10px 14px; vertical-align: middle; }
+    .price-table tbody td:last-child {
+      text-align: right;
+      font-weight: 700;
+      font-family: 'Space Grotesk', sans-serif;
+      color: var(--navy);
+      font-size: 15px;
+    }
+    .speed-dl { font-weight: 600; }
+    .speed-ul, .fup { color: var(--muted); font-size: 13px; }
+
+    .tier--unreal .price-table thead tr { background: #2E86C1; }
+    .tier--prime  .price-table thead tr { background: #1A4A7A; }
+    .tier--pro    .price-table thead tr { background: #0A6E62; }
+
+    /* ─── DIVIDER ─── */
+    .brochure-divider {
+      border: none;
+      border-top: 2px solid var(--border);
+      margin: 48px 0;
+    }
+
+    /* ─── TERMS TABLE ─── */
+    .terms-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .terms-table thead tr { background: var(--navy); color: white; }
+    .terms-table thead th {
+      padding: 10px 12px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .terms-table thead th:first-child { text-align: left; }
+    .terms-table tbody tr { border-bottom: 1px solid var(--border); }
+    .terms-table tbody tr:nth-child(even) { background: var(--light); }
+    .terms-table tbody td { padding: 10px 12px; text-align: center; }
+    .terms-table tbody td:first-child { text-align: left; font-weight: 500; }
+    .amt { font-weight: 700; color: var(--navy); font-family: 'Space Grotesk', sans-serif; }
+
+    /* ─── ADVANTAGES TABLE ─── */
+    .adv-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .adv-table thead tr { background: var(--navy); color: white; }
+    .adv-table thead th {
+      padding: 10px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .adv-table thead th:not(:first-child) { text-align: center; }
+    .adv-table tbody tr { border-bottom: 1px solid var(--border); }
+    .adv-table tbody tr:nth-child(even) { background: var(--light); }
+    .adv-table tbody td { padding: 10px 12px; vertical-align: middle; }
+    .adv-table tbody td:not(:first-child) { text-align: center; }
+    .row-label { font-weight: 600; color: var(--navy); }
+    .check { color: #00A88A; font-size: 16px; }
+    .cross { color: #B0B8C1; font-size: 16px; }
+    .pill {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .pill-blue   { background: #EAF4FF; color: #1A4A7A; }
+    .pill-teal   { background: #E5F9F6; color: #007A6A; }
+    .pill-orange { background: #FFF3E0; color: #9C5000; }
+
+    .fine-print {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.8;
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      margin-top: 48px;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--navy-deep);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    footer .f-brand {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.06em;
+    }
+    footer .f-brand span { color: var(--green-vivid); }
+    footer .f-copy { font-size: 0.74rem; color: rgba(255,255,255,0.3); }
+    footer .f-tagline { font-size: 0.74rem; color: rgba(255,255,255,0.3); font-style: italic; }
+    @media (max-width: 560px) {
+      footer { flex-direction: column; text-align: center; padding: 24px 20px; }
+    }
+
+    @media (max-width: 600px) {
+      .price-table, .terms-table, .adv-table { font-size: 12px; }
+      .price-table thead th, .terms-table thead th, .adv-table thead th { font-size: 11px; padding: 8px 8px; }
+      .price-table tbody td, .terms-table tbody td, .adv-table tbody td { padding: 8px 8px; }
+      .brochure { padding: 32px 14px 48px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TAB BAR -->
+<div class="tab-bar">
+  <div class="tab-bar-inner">
+    <a href="index.html">Home</a>
+    <a href="pricing.html" class="tab-active">Pricing</a>
+    <a href="careers.html" target="_blank">Vacancies</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="wifi-icon">
+        <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+      </div>
+      <div class="wordmark">AETHEL <span>CONNECT</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#how">How It Works</a></li>
+      <li><a href="index.html#areas">Coverage</a></li>
+      <li><a href="index.html#contact" class="nav-cta">Get Connected</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="page-eyebrow">Aethel Connect · Wireless Internet</div>
+    <h1>Packages &amp; Pricing</h1>
+    <p>All packages are uncapped. Choose your speed, term, and router — we handle the rest.</p>
+  </div>
+</div>
+
+<!-- BROCHURE CONTENT -->
+<div class="brochure">
+
+  <!-- STEP 1: PACKAGES -->
+  <div class="steps-row">
+    <span class="step-badge active">Step 1 — Choose Package</span>
+    <span class="step-badge">Step 2 — Choose Term</span>
+    <span class="step-badge">Step 3 — Choose Router</span>
+  </div>
+
+  <!-- UNREAL -->
+  <div class="tier tier--unreal">
+    <div class="tier-name">UNREAL</div>
+    <div class="tier-tags">
+      <span class="tag tag-home">Home</span>
+      <span class="tag tag-biz">Small Business</span>
+    </div>
+    <table class="price-table">
+      <thead><tr><th>Download ↓</th><th>Upload ↑</th><th>FUP</th><th>Price / month</th></tr></thead>
+      <tbody>
+        <tr><td><span class="speed-dl">Up to 10 Mbps</span></td><td><span class="speed-ul">1–2 Mbps</span></td><td><span class="fup">300 GB</span></td><td>R 219</td></tr>
+        <tr><td><span class="speed-dl">Up to 20 Mbps</span></td><td><span class="speed-ul">2–4 Mbps</span></td><td><span class="fup">400 GB</span></td><td>R 289</td></tr>
+        <tr><td><span class="speed-dl">Up to 35 Mbps</span></td><td><span class="speed-ul">3.5–7 Mbps</span></td><td><span class="fup">500 GB</span></td><td>R 359</td></tr>
+        <tr><td><span class="speed-dl">Up to 50 Mbps</span></td><td><span class="speed-ul">5–10 Mbps</span></td><td><span class="fup">600 GB</span></td><td>R 409</td></tr>
+        <tr><td><span class="speed-dl">Up to 100 Mbps</span></td><td><span class="speed-ul">10–20 Mbps</span></td><td><span class="fup">600 GB</span></td><td>R 709</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PRIME -->
+  <div class="tier tier--prime">
+    <div class="tier-name">PRIME</div>
+    <div class="tier-tags">
+      <span class="tag tag-home">Home</span>
+      <span class="tag tag-biz">Small Business</span>
+    </div>
+    <table class="price-table">
+      <thead><tr><th>Download ↓</th><th>Upload ↑</th><th>FUP</th><th>Price / month</th></tr></thead>
+      <tbody>
+        <tr><td><span class="speed-dl">Up to 10 Mbps</span></td><td><span class="speed-ul">1–3 Mbps</span></td><td><span class="fup">750 GB</span></td><td>R 739</td></tr>
+        <tr><td><span class="speed-dl">Up to 20 Mbps</span></td><td><span class="speed-ul">2–5 Mbps</span></td><td><span class="fup">1 250 GB</span></td><td>R 1 059</td></tr>
+        <tr><td><span class="speed-dl">Up to 35 Mbps</span></td><td><span class="speed-ul">3.5–10 Mbps</span></td><td><span class="fup">1 500 GB</span></td><td>R 1 589</td></tr>
+        <tr><td><span class="speed-dl">Up to 50 Mbps</span></td><td><span class="speed-ul">5–15 Mbps</span></td><td><span class="fup">2 000 GB</span></td><td>R 2 119</td></tr>
+        <tr><td><span class="speed-dl">Up to 100 Mbps</span></td><td><span class="speed-ul">10–25 Mbps</span></td><td><span class="fup">4 000 GB</span></td><td>R 2 869</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PROFESSIONAL -->
+  <div class="tier tier--pro">
+    <div class="tier-name">PROFESSIONAL</div>
+    <div class="tier-tags">
+      <span class="tag tag-home">Home</span>
+      <span class="tag tag-biz">Small Business</span>
+      <span class="tag tag-ent">Enterprise</span>
+    </div>
+    <table class="price-table">
+      <thead><tr><th>Download ↓</th><th>Upload ↑</th><th>FUP</th><th>Price / month</th></tr></thead>
+      <tbody>
+        <tr><td><span class="speed-dl">Up to 5 Mbps</span></td><td><span class="speed-ul">1.25–2.5 Mbps</span></td><td><span class="fup">750 GB</span></td><td>R 1 169</td></tr>
+        <tr><td><span class="speed-dl">Up to 10 Mbps</span></td><td><span class="speed-ul">2.5–5 Mbps</span></td><td><span class="fup">1 000 GB</span></td><td>R 1 489</td></tr>
+        <tr><td><span class="speed-dl">Up to 15 Mbps</span></td><td><span class="speed-ul">3.75–7.5 Mbps</span></td><td><span class="fup">1 250 GB</span></td><td>R 1 809</td></tr>
+        <tr><td><span class="speed-dl">Up to 20 Mbps</span></td><td><span class="speed-ul">5–10 Mbps</span></td><td><span class="fup">1 500 GB</span></td><td>R 2 119</td></tr>
+        <tr><td><span class="speed-dl">Up to 35 Mbps</span></td><td><span class="speed-ul">8.75–17.5 Mbps</span></td><td><span class="fup">2 000 GB</span></td><td>R 2 869</td></tr>
+        <tr><td><span class="speed-dl">Up to 50 Mbps</span></td><td><span class="speed-ul">12.5–25 Mbps</span></td><td><span class="fup">2 500 GB</span></td><td>R 3 709</td></tr>
+        <tr><td><span class="speed-dl">Up to 100 Mbps</span></td><td><span class="speed-ul">25–50 Mbps</span></td><td><span class="fup">5 000 GB</span></td><td>R 4 669</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="brochure-divider" />
+
+  <!-- STEP 2: INSTALLATION -->
+  <div class="steps-row">
+    <span class="step-badge">Step 1 — Choose Package</span>
+    <span class="step-badge active">Step 2 — Choose Term</span>
+    <span class="step-badge">Step 3 — Choose Router</span>
+  </div>
+  <p class="section-title">Applicable to Unreal, Prime &amp; Professional</p>
+  <h2 class="section-heading">Outdoor Installation</h2>
+  <table class="terms-table">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>24 Months<br><small style="font-weight:400;opacity:.8;">monthly rental</small></th>
+        <th>12 Months<br><small style="font-weight:400;opacity:.8;">monthly rental</small></th>
+        <th>MtM<br><small style="font-weight:400;opacity:.8;">monthly rental</small></th>
+        <th>MtM<br><small style="font-weight:400;opacity:.8;">once-off purchase</small></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Outdoor Installation</td>
+        <td><span class="amt">R 279 pm</span></td>
+        <td><span class="amt">R 299 pm</span></td>
+        <td><span class="amt">R 319 pm</span></td>
+        <td><span class="amt">R 11 049</span> <span style="font-size:11px;color:var(--muted);">once-off¹</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr class="brochure-divider" />
+
+  <!-- STEP 3: ROUTER -->
+  <div class="steps-row">
+    <span class="step-badge">Step 1 — Choose Package</span>
+    <span class="step-badge">Step 2 — Choose Term</span>
+    <span class="step-badge active">Step 3 — Choose Router</span>
+  </div>
+  <p class="section-title">Applicable to Unreal, Prime &amp; Professional</p>
+  <h2 class="section-heading">Router Options</h2>
+  <table class="terms-table">
+    <thead>
+      <tr>
+        <th>Router</th>
+        <th>24 Months<br><small style="font-weight:400;opacity:.8;">monthly rental</small></th>
+        <th>12 Months<br><small style="font-weight:400;opacity:.8;">monthly rental</small></th>
+        <th>MtM<br><small style="font-weight:400;opacity:.8;">monthly rental</small></th>
+        <th>MtM<br><small style="font-weight:400;opacity:.8;">once-off purchase</small></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>No Router (use my own)</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr><td>Basic Router</td><td><span class="amt">R 29 pm</span></td><td><span class="amt">R 49 pm</span></td><td><span class="amt">R 29 pm*</span></td><td><span class="amt">R 369</span></td></tr>
+      <tr><td>Standard Router</td><td><span class="amt">R 69 pm</span></td><td><span class="amt">R 119 pm</span></td><td><span class="amt">R 49 pm*</span></td><td><span class="amt">R 1 199</span></td></tr>
+      <tr><td>Advanced Router</td><td><span class="amt">R 89 pm</span></td><td><span class="amt">R 159 pm</span></td><td><span class="amt">R 69 pm*</span></td><td><span class="amt">R 1 749</span></td></tr>
+      <tr><td>Mesh WiFi 100 Mbps</td><td><span class="amt">R 149 pm</span></td><td><span class="amt">R 269 pm</span></td><td><span class="amt">R 119 pm*</span></td><td><span class="amt">R 2 869</span></td></tr>
+      <tr><td>Mesh WiFi 1000 Mbps</td><td><span class="amt">R 189 pm</span></td><td><span class="amt">R 349 pm</span></td><td>—</td><td><span class="amt">R 3 799</span></td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:12px;color:var(--muted);margin-top:10px;">* Includes Advanced Warranty and excludes once-off courier fee of R 150.</p>
+
+  <hr class="brochure-divider" />
+
+  <!-- ADVANTAGES -->
+  <p class="section-title">Package Comparison</p>
+  <h2 class="section-heading">Advantages at a Glance</h2>
+  <table class="adv-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th style="color:#7EC8F5;">UNREAL</th>
+        <th style="color:#A8CFFF;">PRIME</th>
+        <th style="color:#5EFAE7;">PROFESSIONAL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="row-label">Uncapped</td><td><span class="check">✔</span></td><td><span class="check">✔</span></td><td><span class="check">✔</span></td></tr>
+      <tr><td class="row-label">SLA</td><td>Best Effort</td><td>Best Effort</td><td>With Penalties</td></tr>
+      <tr><td class="row-label">Response Time</td><td>Up to 3 business days</td><td>Up to 3 business days</td><td><strong>8 business hours</strong></td></tr>
+      <tr><td class="row-label">Support</td><td>Help Desk (1st-level)</td><td>Help Desk (1st-level)</td><td><strong>Priority (2nd-level)</strong></td></tr>
+      <tr><td class="row-label">Fair Use Policy</td><td><span class="pill pill-blue">MEDIUM 300–600 GB</span></td><td><span class="pill pill-teal">HIGH 750–4 000 GB</span></td><td><span class="pill pill-orange">VERY HIGH 750–5 000 GB</span></td></tr>
+      <tr><td class="row-label">Upload Speed</td><td>Up to 20% of download</td><td>25–40% of download</td><td><strong>Up to 50% of download</strong></td></tr>
+      <tr><td class="row-label">Connection Type</td><td>PtMP / Asynchronous</td><td>PtMP / Asynchronous</td><td>PtMP / Asynchronous</td></tr>
+      <tr><td class="row-label">Account Executive</td><td><span class="cross">—</span></td><td><span class="cross">—</span></td><td><span class="check">✔ Dedicated</span></td></tr>
+      <tr><td class="row-label">Public IP</td><td>Dynamic IPv4 &amp; IPv6</td><td>Dynamic IPv4 &amp; IPv6</td><td><strong>FREE Static IP</strong><br><span style="font-size:11px;color:var(--muted);">valued at R 115 pm</span></td></tr>
+      <tr><td class="row-label">Hosted PBX</td><td><span class="cross">—</span></td><td><span class="cross">—</span></td><td><strong>10 x FREE Extensions</strong><br><span style="font-size:11px;color:var(--muted);">valued at R 460 pm</span></td></tr>
+    </tbody>
+  </table>
+
+  <!-- FINE PRINT -->
+  <div class="fine-print">
+    All products, package specifications, and pricing shown are subject to coverage, installation approval, and applicable Terms and Conditions. All pricing includes VAT and may change without notice. Service availability is subject to an on-site pre-installation survey. All 12- and 24-month orders are subject to affordability assessment. Month-to-Month packages terminated within the first 12 months incur a R 2 500 early termination fee (including VAT). After reaching your FUP usage threshold during any month, your speed will automatically reduce to 4 Mbps / 1 Mbps until the last day of the same month. Routers selected on a rental agreement remain the property of the service provider.<br><br>
+    ¹ For once-off equipment purchases on Month-to-Month (MtM) terms, a Buy Back Guarantee applies: 75% in Year 1, 50% in Year 2, 25% in Year 3, 10% in Year 4. Only a copy of business registration and ID is required for once-off equipment purchase.
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-brand">AETHEL <span>CONNECT</span></div>
+  <div class="f-tagline">Focused. Connected. Communities.</div>
+  <div class="f-copy">© 2025 Aethelwine Homes (Pty) Ltd · Reg. 2021/453243/07</div>
+</footer>
+
+</body>
+</html>
