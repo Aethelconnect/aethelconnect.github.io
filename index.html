@@ -228,6 +228,7 @@
                     <label class="text-xs text-slate-600 font-semibold whitespace-nowrap">LTE Network:</label>
                     <select id="lte-network-select" onchange="applyFilters()" class="flex-1 bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 focus:outline-none focus:border-brand-500 transition">
                         <option value="ALL">All Networks</option>
+                        <option value="Aethel">Aethel</option>
                         <option value="Telkom">Telkom</option>
                         <option value="MTN">MTN</option>
                     </select>
@@ -422,11 +423,11 @@
 
         // ---- EXACT DATA FROM THE RETAIL PDF ----
         const lteData = [
-            { id: "lte-1", network: "Telkom", name: "Home Internet Advanced LTE", speed: "Best Effort", data: "450 GB (1Mbps after)", price: 779.00 },
-            { id: "lte-2", network: "Telkom", name: "Home Internet Max LTE", speed: "Best Effort", data: "600 GB (2Mbps after)", price: 899.00 },
-            { id: "lte-3", network: "Telkom", name: "Home Internet Max+ LTE", speed: "Best Effort", data: "1000 GB (2Mbps after)", price: 1279.00 },
-            { id: "lte-4", network: "Telkom", name: "Home Internet Plus LTE", speed: "Best Effort", data: "300 GB (512Kbps after)", price: 649.00 },
-            { id: "lte-5", network: "Telkom", name: "Home Internet Starter LTE", speed: "Best Effort", data: "150 GB (512Kbps after)", price: 499.00 },
+            { id: "lte-1", network: "Aethel", name: "Home Internet Advanced LTE", speed: "Best Effort", data: "450 GB (1Mbps after)", price: 779.00 },
+            { id: "lte-2", network: "Aethel", name: "Home Internet Max LTE", speed: "Best Effort", data: "600 GB (2Mbps after)", price: 899.00 },
+            { id: "lte-3", network: "Aethel", name: "Home Internet Max+ LTE", speed: "Best Effort", data: "1000 GB (2Mbps after)", price: 1279.00 },
+            { id: "lte-4", network: "Aethel", name: "Home Internet Plus LTE", speed: "Best Effort", data: "300 GB (512Kbps after)", price: 649.00 },
+            { id: "lte-5", network: "Aethel", name: "Home Internet Starter LTE", speed: "Best Effort", data: "150 GB (512Kbps after)", price: 499.00 },
             { id: "lte-6", network: "MTN", name: "MTN Data 15GB LTE", speed: "LTE", data: "15 GB Cap", price: 369.00 },
             { id: "lte-7", network: "MTN", name: "MTN Data 2.5GB LTE", speed: "LTE", data: "2.5 GB Cap", price: 149.00 },
             { id: "lte-8", network: "MTN", name: "MTN Data 25GB LTE", speed: "LTE", data: "25 GB Cap", price: 429.00 },
