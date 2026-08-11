@@ -320,7 +320,7 @@
                     <i id="faq-icon-1" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
                 </button>
                 <div id="faq-ans-1" class="hidden px-6 pb-6 text-xs text-slate-600 leading-relaxed border-t border-slate-200 pt-4">
-                    Typically 21 business days for installation team to come and install.
+                    Typically 21 Business Days for technicians to come and install.
                 </div>
             </div>
             <div class="glass-card rounded-2xl border border-slate-300 overflow-hidden">
@@ -420,27 +420,45 @@
         const WA_PHONE = '27672882659';
         let activeTab = 'ALL';
 
+        // ---- EXACT DATA FROM THE RETAIL PDF ----
         const lteData = [
-            { id: "lte-1", network: "Telkom", name: "Telkom LTE 10 Mbps", speed: "10 Mbps", data: "Uncapped", price: 299.00 },
-            { id: "lte-2", network: "Telkom", name: "Telkom LTE 20 Mbps", speed: "20 Mbps", data: "Uncapped", price: 399.00 },
-            { id: "lte-3", network: "Telkom", name: "Telkom LTE 40 Mbps", speed: "40 Mbps", data: "Uncapped", price: 599.00 },
-            { id: "lte-4", network: "Telkom", name: "Telkom LTE 80 Mbps", speed: "80 Mbps", data: "Uncapped", price: 799.00 },
-            { id: "lte-5", network: "MTN", name: "MTN LTE 10 Mbps", speed: "10 Mbps", data: "Uncapped", price: 289.00 },
-            { id: "lte-6", network: "MTN", name: "MTN LTE 20 Mbps", speed: "20 Mbps", data: "Uncapped", price: 389.00 },
-            { id: "lte-7", network: "MTN", name: "MTN LTE 40 Mbps", speed: "40 Mbps", data: "Uncapped", price: 589.00 },
-            { id: "lte-8", network: "MTN", name: "MTN LTE 80 Mbps", speed: "80 Mbps", data: "Uncapped", price: 789.00 },
-            { id: "lte-9", network: "MTN", name: "MTN LTE 150 Mbps", speed: "150 Mbps", data: "Uncapped", price: 1099.00 }
+            { id: "lte-1", network: "Telkom", name: "Home Internet Advanced LTE", speed: "Best Effort", data: "450 GB (1Mbps after)", price: 779.00 },
+            { id: "lte-2", network: "Telkom", name: "Home Internet Max LTE", speed: "Best Effort", data: "600 GB (2Mbps after)", price: 899.00 },
+            { id: "lte-3", network: "Telkom", name: "Home Internet Max+ LTE", speed: "Best Effort", data: "1000 GB (2Mbps after)", price: 1279.00 },
+            { id: "lte-4", network: "Telkom", name: "Home Internet Plus LTE", speed: "Best Effort", data: "300 GB (512Kbps after)", price: 649.00 },
+            { id: "lte-5", network: "Telkom", name: "Home Internet Starter LTE", speed: "Best Effort", data: "150 GB (512Kbps after)", price: 499.00 },
+            { id: "lte-6", network: "MTN", name: "MTN Data 15GB LTE", speed: "LTE", data: "15 GB Cap", price: 369.00 },
+            { id: "lte-7", network: "MTN", name: "MTN Data 2.5GB LTE", speed: "LTE", data: "2.5 GB Cap", price: 149.00 },
+            { id: "lte-8", network: "MTN", name: "MTN Data 25GB LTE", speed: "LTE", data: "25 GB Cap", price: 429.00 },
+            { id: "lte-9", network: "MTN", name: "MTN Data 5.5GB LTE", speed: "LTE", data: "5.5 GB Cap", price: 189.00 },
+            { id: "lte-10", network: "MTN", name: "MTN Data 50GB LTE", speed: "LTE", data: "50 GB Cap", price: 679.00 },
+            { id: "lte-11", network: "MTN", name: "MTN Data 7.5GB LTE", speed: "LTE", data: "7.5 GB Cap", price: 249.00 },
+            { id: "lte-12", network: "Telkom", name: "Telkom Capped LTE 100GB", speed: "150 Mbps", data: "100 GB Cap", price: 369.00 },
+            { id: "lte-13", network: "Telkom", name: "Telkom Capped LTE 1500GB", speed: "150 Mbps", data: "1500 GB Cap", price: 939.00 },
+            { id: "lte-14", network: "Telkom", name: "Telkom Capped LTE 150GB", speed: "150 Mbps", data: "150 GB Cap", price: 529.00 },
+            { id: "lte-15", network: "Telkom", name: "Telkom Capped LTE 25GB", speed: "150 Mbps", data: "25 GB Cap", price: 179.00 },
+            { id: "lte-16", network: "Telkom", name: "Telkom Capped LTE 300GB", speed: "150 Mbps", data: "300 GB Cap", price: 609.00 },
+            { id: "lte-17", network: "Telkom", name: "Telkom Capped LTE 40GB", speed: "150 Mbps", data: "40 GB Cap", price: 249.00 },
+            { id: "lte-18", network: "Telkom", name: "Telkom Capped LTE 60GB", speed: "150 Mbps", data: "60 GB Cap", price: 299.00 },
+            { id: "lte-19", network: "Telkom", name: "Telkom Capped LTE 750GB", speed: "150 Mbps", data: "750 GB Cap", price: 809.00 },
+            { id: "lte-20", network: "Telkom", name: "Telkom Uncapped LTE (50GB AUP)", speed: "Best Effort", data: "Unlimited", price: 429.00 },
+            { id: "lte-21", network: "Telkom", name: "Telkom Uncapped LTE + Router", speed: "10/10 Mbps", data: "Unlimited", price: 499.00 },
+            { id: "lte-22", network: "Telkom", name: "Telkom Uncapped LTE Advanced", speed: "40 Mbps", data: "Unlimited", price: 799.00 },
+            { id: "lte-23", network: "Telkom", name: "Telkom Uncapped LTE Max", speed: "80 Mbps", data: "Unlimited", price: 929.00 },
+            { id: "lte-24", network: "Telkom", name: "Telkom Uncapped LTE Max+", speed: "Best Effort", data: "Unlimited", price: 1299.00 },
+            { id: "lte-25", network: "Telkom", name: "Telkom Uncapped LTE Plus", speed: "20 Mbps", data: "Unlimited", price: 679.00 },
+            { id: "lte-26", network: "Telkom", name: "Telkom Uncapped LTE Starter", speed: "10 Mbps", data: "Unlimited", price: 529.00 }
         ];
 
         const fibreData = [
-            { id: "fib-1", provider: "Axxess", name: "Axxess 10/10 Mbps", speed: "10/10 Mbps", data: "Uncapped", price: 309.00 },
-            { id: "fib-2", provider: "Axxess", name: "Axxess 100/100 Mbps", speed: "100/100 Mbps", data: "Uncapped", price: 1219.00 },
-            { id: "fib-3", provider: "Axxess", name: "Axxess 20/20 Mbps", speed: "20/20 Mbps", data: "Uncapped", price: 509.00 },
-            { id: "fib-4", provider: "Axxess", name: "Axxess 50/50 Mbps", speed: "50/50 Mbps", data: "Uncapped", price: 999.00 },
-            { id: "fib-5", provider: "Axxess", name: "Axxess 500/500 Mbps", speed: "500/500 Mbps", data: "Uncapped", price: 1649.00 },
-            { id: "fib-6", provider: "Cool Ideas", name: "Cool Ideas 50/25 Mbps", speed: "50/25 Mbps", data: "Uncapped", price: 899.00 },
-            { id: "fib-7", provider: "Cool Ideas", name: "Cool Ideas 100/100 Mbps", speed: "100/100 Mbps", data: "Uncapped", price: 1199.00 },
-            { id: "fib-8", provider: "DNATel", name: "DNATel 100/100 Mbps", speed: "100/100 Mbps", data: "Uncapped", price: 1199.00 },
+            { id: "fib-1", provider: "Clearaccess", name: "Clearaccess 100/100 Mbps", speed: "100/100 Mbps", data: "Uncapped", price: 1299.00 },
+            { id: "fib-2", provider: "Clearaccess", name: "Clearaccess 1000/1000 Mbps", speed: "1000/1000 Mbps", data: "Uncapped", price: 2049.00 },
+            { id: "fib-3", provider: "Clearaccess", name: "Clearaccess 200/200 Mbps", speed: "200/200 Mbps", data: "Uncapped", price: 1479.00 },
+            { id: "fib-4", provider: "Clearaccess", name: "Clearaccess 25/25 Mbps", speed: "25/25 Mbps", data: "Uncapped", price: 909.00 },
+            { id: "fib-5", provider: "Clearaccess", name: "Clearaccess 50/50 Mbps", speed: "50/50 Mbps", data: "Uncapped", price: 1039.00 },
+            { id: "fib-6", provider: "Clearaccess", name: "Clearaccess 500/500 Mbps", speed: "500/500 Mbps", data: "Uncapped", price: 1799.00 },
+            { id: "fib-7", provider: "DNATel", name: "DNATel 10/10 Mbps", speed: "10/10 Mbps", data: "Uncapped", price: 839.00 },
+            { id: "fib-8", provider: "DNATel", name: "DNATel 100/100 Mbps", speed: "100/100 Mbps", data: "Uncapped", price: 1209.00 },
             { id: "fib-9", provider: "DNATel", name: "DNATel 200/200 Mbps", speed: "200/200 Mbps", data: "Uncapped", price: 1299.00 },
             { id: "fib-10", provider: "DNATel", name: "DNATel 30/30 Mbps", speed: "30/30 Mbps", data: "Uncapped", price: 879.00 },
             { id: "fib-11", provider: "DNATel", name: "DNATel 50/50 Mbps", speed: "50/50 Mbps", data: "Uncapped", price: 1049.00 },
@@ -557,8 +575,8 @@
             { id: "hw-14", name: "ZTE U10 Pro MiFi", speed: "4G MiFi", data: "Mobile Hotspot", price: 700.00 }
         ];
 
-        // Popular items (items to highlight with badge)
-        const popularIds = ["fib-43", "fib-58", "fib-79", "fib-83", "fib-84", "lte-1", "hw-14"];
+        // ---- Popular badges for promo items ----
+        const popularIds = ["fib-43", "fib-58", "fib-79", "fib-83", "fib-84"];
 
         // Combine all data with category tags
         const allItems = [
